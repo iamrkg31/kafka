@@ -15,13 +15,13 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 
 @Service
 public class Producer {	
-	private final Logger logger = LoggerFactory.getLogger(Producer.class);
+    private final Logger logger = LoggerFactory.getLogger(Producer.class);
 
-	@Value(value = "${kafka.topic.avro}")
-	private String topicAvro;
-	
-	@Value(value = "${kafka.topic.pojo}")
-	private String topicPojo;
+    @Value(value = "${kafka.topic.avro}")
+    private String topicAvro;
+
+    @Value(value = "${kafka.topic.pojo}")
+    private String topicPojo;
 
 
     @Autowired
