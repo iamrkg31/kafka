@@ -44,8 +44,8 @@
   * Spring boot 2.4.5
 
 * Others
-  * Multiple consumer and producers implementation
+  * Multiple consumers and producers implementation
   * SSL implementation
-  * Avro tool used for creating  `PersonAvro.java` from person.avsc, Use only the avro tool to create any avro object class from avro schema.
+  * Avro tool used for creating  `PersonAvro.java` from `person.avsc`, Use only the avro tool to create any avro object class from avro schema.
     * usage `java -jar avro-tools-1.10.2.jar compile schema person.avsc .`  
 
