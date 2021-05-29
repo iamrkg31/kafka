@@ -1,5 +1,5 @@
 {
-  "name": "Person",
+  "name": "PersonAvro",
   "type": "record",
   "namespace": "me.rahul.kafka.model",
   "fields": [

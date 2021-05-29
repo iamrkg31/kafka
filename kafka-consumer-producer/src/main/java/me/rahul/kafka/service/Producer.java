@@ -1,6 +1,7 @@
 package me.rahul.kafka.service;
 
-import me.rahul.kafka.model.Person;
+import me.rahul.kafka.model.PersonAvro;
+import me.rahul.kafka.model.PersonPojo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,18 +17,43 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 public class Producer {	
 	private final Logger logger = LoggerFactory.getLogger(Producer.class);
 
-    @Value("${kafka.topic.name}")
-    private String topicName;
+	@Value(value = "${kafka.topic.avro}")
+	private String topicAvro;
+	
+	@Value(value = "${kafka.topic.pojo}")
+	private String topicPojo;
+
 
     @Autowired
-    private KafkaTemplate<String, Person> kafkaTemplate;
+    private KafkaTemplate<String, PersonAvro> kafkaTemplateAvro;
+    
+    @Autowired
+    private KafkaTemplate<String, PersonPojo> kafkaTemplatePojo;
+    
 
-    public void sendMessage(Person message) {
-        ListenableFuture<SendResult<String, Person>> future = kafkaTemplate.send(topicName, message);
+    public void sendMessageAvro(PersonAvro message) {
+        ListenableFuture<SendResult<String, PersonAvro>> future = kafkaTemplateAvro.send(topicAvro, message);
         future.addCallback(
-                new ListenableFutureCallback<SendResult<String, Person>>() {
+                new ListenableFutureCallback<SendResult<String, PersonAvro>>() {
                     @Override
-                    public void onSuccess(SendResult<String, Person> result) {
+                    public void onSuccess(SendResult<String, PersonAvro> result) {
+                    	logger.info(
+                                "Sent message=[{}] with offset=[{}]", message, result.getRecordMetadata().offset());
+                    }
+
+                    @Override
+                    public void onFailure(Throwable ex) {
+                    	logger.info("Unable to send message=[{}] due to : {}", message, ex.getMessage());
+                    }
+                });
+    }
+    
+    public void sendMessagePojo(PersonPojo message) {
+        ListenableFuture<SendResult<String, PersonPojo>> future = kafkaTemplatePojo.send(topicPojo, message);
+        future.addCallback(
+                new ListenableFutureCallback<SendResult<String, PersonPojo>>() {
+                    @Override
+                    public void onSuccess(SendResult<String, PersonPojo> result) {
                     	logger.info(
                                 "Sent message=[{}] with offset=[{}]", message, result.getRecordMetadata().offset());
                     }

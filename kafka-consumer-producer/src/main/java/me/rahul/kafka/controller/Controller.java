@@ -1,7 +1,8 @@
 package me.rahul.kafka.controller;
 
 
-import me.rahul.kafka.model.Person;
+import me.rahul.kafka.model.PersonAvro;
+import me.rahul.kafka.model.PersonPojo;
 import me.rahul.kafka.service.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,8 +20,13 @@ public class Controller {
 	this.producer = producer;
 	}
 	
-	@PostMapping(value = "/publish")
-	public void sendMessageToKafkaTopic(@RequestBody Person message){
-	this.producer.sendMessage(message);
+	@PostMapping(value = "/publish-avro")
+	public void sendAvroMessageToKafkaTopic(@RequestBody PersonAvro message){
+	this.producer.sendMessageAvro(message);
+	}
+	
+	@PostMapping(value = "/publish-pojo")
+	public void sendPojoMessageToKafkaTopic(@RequestBody PersonPojo message){
+	this.producer.sendMessagePojo(message);
 	}
 }

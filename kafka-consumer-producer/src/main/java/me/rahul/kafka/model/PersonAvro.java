@@ -13,24 +13,24 @@ import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
-public class Person extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -2241561880572274329L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"me.rahul.kafka.model\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"age\",\"type\":\"int\"},{\"name\":\"birthDate\",\"type\":\"long\"}]}");
+public class PersonAvro extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = 8904702558204249846L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PersonAvro\",\"namespace\":\"me.rahul.kafka.model\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"age\",\"type\":\"int\"},{\"name\":\"birthDate\",\"type\":\"long\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
 
-  private static final BinaryMessageEncoder<Person> ENCODER =
-      new BinaryMessageEncoder<Person>(MODEL$, SCHEMA$);
+  private static final BinaryMessageEncoder<PersonAvro> ENCODER =
+      new BinaryMessageEncoder<PersonAvro>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<Person> DECODER =
-      new BinaryMessageDecoder<Person>(MODEL$, SCHEMA$);
+  private static final BinaryMessageDecoder<PersonAvro> DECODER =
+      new BinaryMessageDecoder<PersonAvro>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
    * @return the message encoder used by this class
    */
-  public static BinaryMessageEncoder<Person> getEncoder() {
+  public static BinaryMessageEncoder<PersonAvro> getEncoder() {
     return ENCODER;
   }
 
@@ -38,7 +38,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
    * Return the BinaryMessageDecoder instance used by this class.
    * @return the message decoder used by this class
    */
-  public static BinaryMessageDecoder<Person> getDecoder() {
+  public static BinaryMessageDecoder<PersonAvro> getDecoder() {
     return DECODER;
   }
 
@@ -47,12 +47,12 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
-  public static BinaryMessageDecoder<Person> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<Person>(MODEL$, SCHEMA$, resolver);
+  public static BinaryMessageDecoder<PersonAvro> createDecoder(SchemaStore resolver) {
+    return new BinaryMessageDecoder<PersonAvro>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
-   * Serializes this Person to a ByteBuffer.
+   * Serializes this PersonAvro to a ByteBuffer.
    * @return a buffer holding the serialized data for this instance
    * @throws java.io.IOException if this instance could not be serialized
    */
@@ -61,12 +61,12 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
   }
 
   /**
-   * Deserializes a Person from a ByteBuffer.
+   * Deserializes a PersonAvro from a ByteBuffer.
    * @param b a byte buffer holding serialized data for an instance of this class
-   * @return a Person instance decoded from the given buffer
+   * @return a PersonAvro instance decoded from the given buffer
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
-  public static Person fromByteBuffer(
+  public static PersonAvro fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
@@ -81,7 +81,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>.
    */
-  public Person() {}
+  public PersonAvro() {}
 
   /**
    * All-args constructor.
@@ -90,7 +90,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
    * @param age The new value for age
    * @param birthDate The new value for birthDate
    */
-  public Person(java.lang.CharSequence name, java.lang.CharSequence id, java.lang.Integer age, java.lang.Long birthDate) {
+  public PersonAvro(java.lang.CharSequence name, java.lang.CharSequence id, java.lang.Integer age, java.lang.Long birthDate) {
     this.name = name;
     this.id = id;
     this.age = age;
@@ -191,45 +191,45 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
   }
 
   /**
-   * Creates a new Person RecordBuilder.
-   * @return A new Person RecordBuilder
+   * Creates a new PersonAvro RecordBuilder.
+   * @return A new PersonAvro RecordBuilder
    */
-  public static me.rahul.kafka.model.Person.Builder newBuilder() {
-    return new me.rahul.kafka.model.Person.Builder();
+  public static me.rahul.kafka.model.PersonAvro.Builder newBuilder() {
+    return new me.rahul.kafka.model.PersonAvro.Builder();
   }
 
   /**
-   * Creates a new Person RecordBuilder by copying an existing Builder.
+   * Creates a new PersonAvro RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new Person RecordBuilder
+   * @return A new PersonAvro RecordBuilder
    */
-  public static me.rahul.kafka.model.Person.Builder newBuilder(me.rahul.kafka.model.Person.Builder other) {
+  public static me.rahul.kafka.model.PersonAvro.Builder newBuilder(me.rahul.kafka.model.PersonAvro.Builder other) {
     if (other == null) {
-      return new me.rahul.kafka.model.Person.Builder();
+      return new me.rahul.kafka.model.PersonAvro.Builder();
     } else {
-      return new me.rahul.kafka.model.Person.Builder(other);
+      return new me.rahul.kafka.model.PersonAvro.Builder(other);
     }
   }
 
   /**
-   * Creates a new Person RecordBuilder by copying an existing Person instance.
+   * Creates a new PersonAvro RecordBuilder by copying an existing PersonAvro instance.
    * @param other The existing instance to copy.
-   * @return A new Person RecordBuilder
+   * @return A new PersonAvro RecordBuilder
    */
-  public static me.rahul.kafka.model.Person.Builder newBuilder(me.rahul.kafka.model.Person other) {
+  public static me.rahul.kafka.model.PersonAvro.Builder newBuilder(me.rahul.kafka.model.PersonAvro other) {
     if (other == null) {
-      return new me.rahul.kafka.model.Person.Builder();
+      return new me.rahul.kafka.model.PersonAvro.Builder();
     } else {
-      return new me.rahul.kafka.model.Person.Builder(other);
+      return new me.rahul.kafka.model.PersonAvro.Builder(other);
     }
   }
 
   /**
-   * RecordBuilder for Person instances.
+   * RecordBuilder for PersonAvro instances.
    */
   @org.apache.avro.specific.AvroGenerated
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Person>
-    implements org.apache.avro.data.RecordBuilder<Person> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<PersonAvro>
+    implements org.apache.avro.data.RecordBuilder<PersonAvro> {
 
     private java.lang.CharSequence name;
     private java.lang.CharSequence id;
@@ -245,7 +245,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(me.rahul.kafka.model.Person.Builder other) {
+    private Builder(me.rahul.kafka.model.PersonAvro.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.name)) {
         this.name = data().deepCopy(fields()[0].schema(), other.name);
@@ -266,10 +266,10 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
     }
 
     /**
-     * Creates a Builder by copying an existing Person instance
+     * Creates a Builder by copying an existing PersonAvro instance
      * @param other The existing instance to copy.
      */
-    private Builder(me.rahul.kafka.model.Person other) {
+    private Builder(me.rahul.kafka.model.PersonAvro other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.name)) {
         this.name = data().deepCopy(fields()[0].schema(), other.name);
@@ -303,7 +303,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
       * @param value The value of 'name'.
       * @return This builder.
       */
-    public me.rahul.kafka.model.Person.Builder setName(java.lang.CharSequence value) {
+    public me.rahul.kafka.model.PersonAvro.Builder setName(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.name = value;
       fieldSetFlags()[0] = true;
@@ -323,7 +323,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
       * Clears the value of the 'name' field.
       * @return This builder.
       */
-    public me.rahul.kafka.model.Person.Builder clearName() {
+    public me.rahul.kafka.model.PersonAvro.Builder clearName() {
       name = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -343,7 +343,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
       * @param value The value of 'id'.
       * @return This builder.
       */
-    public me.rahul.kafka.model.Person.Builder setId(java.lang.CharSequence value) {
+    public me.rahul.kafka.model.PersonAvro.Builder setId(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.id = value;
       fieldSetFlags()[1] = true;
@@ -363,7 +363,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
       * Clears the value of the 'id' field.
       * @return This builder.
       */
-    public me.rahul.kafka.model.Person.Builder clearId() {
+    public me.rahul.kafka.model.PersonAvro.Builder clearId() {
       id = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -383,7 +383,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
       * @param value The value of 'age'.
       * @return This builder.
       */
-    public me.rahul.kafka.model.Person.Builder setAge(int value) {
+    public me.rahul.kafka.model.PersonAvro.Builder setAge(int value) {
       validate(fields()[2], value);
       this.age = value;
       fieldSetFlags()[2] = true;
@@ -403,7 +403,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
       * Clears the value of the 'age' field.
       * @return This builder.
       */
-    public me.rahul.kafka.model.Person.Builder clearAge() {
+    public me.rahul.kafka.model.PersonAvro.Builder clearAge() {
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -422,7 +422,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
       * @param value The value of 'birthDate'.
       * @return This builder.
       */
-    public me.rahul.kafka.model.Person.Builder setBirthDate(long value) {
+    public me.rahul.kafka.model.PersonAvro.Builder setBirthDate(long value) {
       validate(fields()[3], value);
       this.birthDate = value;
       fieldSetFlags()[3] = true;
@@ -442,16 +442,16 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
       * Clears the value of the 'birthDate' field.
       * @return This builder.
       */
-    public me.rahul.kafka.model.Person.Builder clearBirthDate() {
+    public me.rahul.kafka.model.PersonAvro.Builder clearBirthDate() {
       fieldSetFlags()[3] = false;
       return this;
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public Person build() {
+    public PersonAvro build() {
       try {
-        Person record = new Person();
+        PersonAvro record = new PersonAvro();
         record.name = fieldSetFlags()[0] ? this.name : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.id = fieldSetFlags()[1] ? this.id : (java.lang.CharSequence) defaultValue(fields()[1]);
         record.age = fieldSetFlags()[2] ? this.age : (java.lang.Integer) defaultValue(fields()[2]);
@@ -466,8 +466,8 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<Person>
-    WRITER$ = (org.apache.avro.io.DatumWriter<Person>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<PersonAvro>
+    WRITER$ = (org.apache.avro.io.DatumWriter<PersonAvro>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -475,8 +475,8 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<Person>
-    READER$ = (org.apache.avro.io.DatumReader<Person>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<PersonAvro>
+    READER$ = (org.apache.avro.io.DatumReader<PersonAvro>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {
