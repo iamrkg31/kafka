@@ -1,4 +1,0 @@
-# Avro consumer and producer
-
-
-
